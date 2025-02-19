@@ -19,7 +19,9 @@ import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
+import dotnet from "./tech/dotnet.png";
+import sql from "./tech/sql.png";
+import azure from "./tech/azure.png";
 
 
 import sqli from "./company/sqli.png";
@@ -55,11 +57,13 @@ export {
   javascript,
   mongodb,
   nodejs,
+  dotnet,
+  sql,
+  azure,
   reactjs,
   redux,
   tailwind,
   typescript,
-  threejs,
   logometa,
   carrent,
   sqli,

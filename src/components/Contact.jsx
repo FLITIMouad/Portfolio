@@ -80,7 +80,7 @@ const Contact = () => {
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
         >
-          <label className='flex flex-col'>
+         {/*  <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Name</span>
             <input
               type='text'
@@ -119,7 +119,15 @@ const Contact = () => {
             className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
           >
             {loading ? "Sending..." : "Send"}
-          </button>
+          </button> */}
+                 {/* Overlay to hide the form */}
+      <div className="bg-black-200  justify-center items-center text-center text-white text-lg font-semibold rounded-2xl">
+        <p>
+          🚧 This section is under development! 🚧 <br />
+          You can check my contacts using the terminal or contact me via email.
+        </p>
+        <p> mouadfliti@gmail.com</p>
+      </div>
         </form>
       </motion.div>
 

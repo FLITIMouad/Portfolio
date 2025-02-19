@@ -8,8 +8,6 @@ import {
   html,
   css,
   reactjs,
-  redux,
-  tailwind,
   nodejs,
   mongodb,
   git,
@@ -18,7 +16,6 @@ import {
   sqli,
   sgs,
   carrent,
-  threejs,
   CV,
   loyer,
   nabil,
@@ -27,6 +24,9 @@ import {
   profile,
   khalil,
   portfolio,
+  dotnet,
+  sql,
+  azure,
 
 } from "../assets";
 
@@ -72,12 +72,20 @@ const services = [
 
 const technologies = [
   {
-    name: "HTML 5",
-    icon: html,
+    name: "Dot Net",
+    icon: dotnet,
   },
   {
-    name: "CSS 3",
-    icon: css,
+    name: "Azure",
+    icon: azure,
+  },
+  {
+    name: "SQl server",
+    icon: sql,
+  },
+  {
+    name: "MongoDB",
+    icon: mongodb,
   },
   {
     name: "JavaScript",
@@ -92,24 +100,16 @@ const technologies = [
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
+    name: "HTML 5",
+    icon: html,
   },
   {
-    name: "Tailwind CSS",
-    icon: tailwind,
+    name: "CSS 3",
+    icon: css,
   },
   {
     name: "Node JS",
     icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
   },
   {
     name: "git",
