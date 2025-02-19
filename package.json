@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": " gh-pages -d dist -u \"FLITIMouad <asus16mouad@gmail.com>\""
   },
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
