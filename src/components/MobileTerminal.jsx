@@ -52,7 +52,9 @@ const MobileTerminal = () => {
   };
 
   return (
-    <div className="fixed top-5 inset-0 w-full h-full bg-black text-green-400 font-mono p-4 flex flex-col text-sm md:text-base">
+    <div onClick={()=>{
+      inputRef.current.focus();
+  }} className="fixed top-5 inset-0 w-full h-full bg-black text-green-400 font-mono p-4 flex flex-col text-sm md:text-base">
       {/* Terminal Content */}
       <div className="flex-grow overflow-y-auto p-2 overflow-x-hidden w-full">
         {history.map((entry, index) => (

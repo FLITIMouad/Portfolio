@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "vite preview  --host",
     "predeploy": "npm run build",
     "deploy": " gh-pages -d dist -u \"FLITIMouad <asus16mouad@gmail.com>\""
   },
@@ -15,8 +15,10 @@
     "@emailjs/browser": "^3.10.0",
     "@react-three/drei": "^9.56.24",
     "@react-three/fiber": "^8.11.1",
+    "@vitejs/plugin-legacy": "^6.0.1",
     "@xterm/addon-fit": "^0.10.0",
     "@xterm/xterm": "^5.5.0",
+    "core-js": "^3.40.0",
     "framer-motion": "^9.0.7",
     "maath": "^0.5.2",
     "react": "^18.2.0",
@@ -32,12 +34,14 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.20",
     "gh-pages": "^6.3.0",
-    "postcss": "^8.4.21",
+    "postcss": "^8.5.3",
     "tailwindcss": "^3.2.6",
     "vite": "^4.1.0"
   }

@@ -1,6 +1,9 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 
 import App from "./App";
 
