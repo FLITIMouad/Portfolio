@@ -9,5 +9,13 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function() {
+        const path = window.location.pathname;
+        if (!path.startsWith('/index.html')) {
+          window.history.replaceState({}, '', '/index.html');
+        }
+      })();
+    </script>
   </body>
 </html>
