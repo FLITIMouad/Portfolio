@@ -7,7 +7,6 @@ import useIsMobile from "../../hoc/useIsMobile";
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
-    console.log("GLTF Model Loaded:", computer);
     
     return (
       <mesh>
