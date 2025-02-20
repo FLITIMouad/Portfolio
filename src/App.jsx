@@ -1,53 +1,19 @@
-import { BrowserRouter } from "react-router-dom";
-
-import {
-  About,
-  Contact,
-  Experience,
-  Feedbacks,
-  Hero,
-  Navbar,
-  Tech,
-  Works,
-  StarsCanvas,
-  TerminalModal,
-  ModalFl,
-  Terminal,
-} from "./components";
-import { FullPage, Slide } from "react-full-page";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
+import { PortfolioPage } from "./pages";
+import TerminalPage from "./pages/TerminalPage";
+
 const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+ 
   const [historical, setHistorical] = useState([]);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
+ 
   return (
-
-        <BrowserRouter>
-      <div className='relative z-0 bg-primary '>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-          <Navbar openModal={openModal} />
-          <Hero />
-        </div>
-        <About />
-        <Experience />
-        <Tech />
-        <Works />
-        <Feedbacks />
-        <div className='relative z-0'>
-          <Contact />
-          <StarsCanvas />
-        </div>
-        <ModalFl isOpen={isModalOpen} onRequestClose={closeModal} title='Terminal'>
-           <Terminal historical={historical} setHistorical={setHistorical} />
-        </ModalFl>
-      </div>
+    <BrowserRouter>
+      <Routes>
+       <Route  path="/Portfolio/terminal" element={<TerminalPage />} />
+       <Route  path="/:id" element={<PortfolioPage historical={historical} setHistorical={setHistorical}  />} />
+        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+      </Routes>
     </BrowserRouter>
   );
 };

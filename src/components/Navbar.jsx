@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logometa, menu, close } from "../assets";
+import { useIsMobile } from "../hoc";
 
 
-const Navbar = ({openModal}) => {
+const Navbar = ({openModal=()=>{}}) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const isMobile =useIsMobile();
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -94,7 +95,7 @@ const Navbar = ({openModal}) => {
                     setActive(nav.title);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                 {nav.id.includes('terminal') && isMobile ? (<Link to={nav.id}>{nav.title}</Link>) : <a href={`#${nav.id}`}>{nav.title}</a>} 
                 </li>
               ))}
             </ul>

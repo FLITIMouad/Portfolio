@@ -1,3 +1,3 @@
 import SectionWrapper from "./SectionWrapper";
-
-export { SectionWrapper };
+import useIsMobile from "./useIsMobile";
+export { SectionWrapper,useIsMobile };

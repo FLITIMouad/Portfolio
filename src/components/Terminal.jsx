@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { commands,shortCutcommands } from "../constants";
-import { e } from "maath/dist/index-43782085.esm";
+import { useGlobaleState } from "../states/GlobaleState";
 
-const Terminal = ({historical,setHistorical}) => {
+const Terminal = ({absolute=false}) => {
   const [input, setInput] = useState("");
-
+  const {historical,setHistorical,addHistorical} =useGlobaleState();
   const [history, setHistory] = useState([
     {
       active: true,
@@ -13,7 +13,6 @@ const Terminal = ({historical,setHistorical}) => {
     },
   ]);
   const inputRef = useRef(null);
-  const terminalRef = useRef(null);
   
 
   const handleCommand = () => {
@@ -21,14 +20,13 @@ const Terminal = ({historical,setHistorical}) => {
     let commandOutput ="";
     let exeBatch =input.toLowerCase().split(" ");
     let cmd=exeBatch[1];
-    const setData =(prev) => [...prev.map((p) => ({ ...p, active: false })), { command: input, output: commandOutput,active:false }];
     if(!exeBatch.includes("mouad")) 
         commandOutput =`'${input.toLowerCase()}' is not recognized as an internal or external command,`;
     else
         commandOutput = commands[cmd] || shortCutcommands[cmd]|| "Command not found. Type 'help' for a list of commands.";
         setInput("");
-
-    setHistorical(setData);
+    const command= { command: input, output: commandOutput,active:false };
+    addHistorical(command);
     if(commandOutput=="clear")
     {
         setHistory([  {
@@ -40,7 +38,7 @@ const Terminal = ({historical,setHistorical}) => {
         return;
     }
 
-    setHistory(setData);
+    setHistory((prev) => [...prev.map((p) => ({ ...p, active: false })),command]);
   };
  
   useEffect(() => {
@@ -48,7 +46,7 @@ const Terminal = ({historical,setHistorical}) => {
     inputRef.current.scrollIntoView() ;
   }, [history]);
 
-  useEffect( () => () => setHistorical((prev)=> [...prev.map((p) => ({ ...p, active: false }))]), [] );
+  useEffect( () => () => setHistorical(historical.map((p) => ({ ...p, active: false }))), [] );
   const handleKeyDown = (e) => {
     if(e.key === "Enter" )
         handleCommand()
@@ -56,16 +54,17 @@ const Terminal = ({historical,setHistorical}) => {
     if (e.keyCode === 38) {
       let index = historical.findIndex((entry) => entry.active);
       index= index==-1 ? historical.length  : index;
+      console.log(historical)
       if (index >= 0 && historical.length) {
         let decrimentedIndex = index ==0 ? 0 : 1;
         setInput(historical[index-decrimentedIndex].command);
-        setHistorical((prev) => prev.map((p, i) => ({ ...p, active: i === index - decrimentedIndex})));
+        setHistorical( historical.map((p, i) => ({ ...p, active: i === index - decrimentedIndex})));
       }
     } else if (e.keyCode === 40) { 
       const index = historical.findIndex((entry) => entry.active);
       if (index < historical.length - 1) {
         setInput(historical[index + 1].command);
-        setHistorical((prev) => prev.map((p, i) => ({ ...p, active: i === index + 1 })));
+        setHistorical(historical.map((p, i) => ({ ...p, active: i === index + 1 })));
       }
     }
         
@@ -73,7 +72,7 @@ const Terminal = ({historical,setHistorical}) => {
   return (
     <div onClick={()=>{
         inputRef.current.focus();
-    }} className="w-full h-full bg-black text-green-400 font-mono p-4 rounded-lg shadow-lg overflow-y-auto">
+    }}  className={`${absolute ? "absolute":""} inset-0 w-full h-full bg-black text-green-400 font-mono p-4 overflow-y-auto`}>
       <div className="mb-4 p-2">
         {history.map((entry, index) => (
           <div key={index}>

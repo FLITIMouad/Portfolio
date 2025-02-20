@@ -1,13 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import ModalFl from "./ModalFl";
 
 const Contact = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -34,12 +43,12 @@ const Contact = () => {
     emailjs
       .send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATEID,
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: import.meta.env.VITE_APP_EMAILJS_RECEIVERID,
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          to_email: import.meta.env.VITE_APP_EMAILJS_USER_ID,
           message: form.message,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -47,7 +56,7 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+          openModal();
 
           setForm({
             name: "",
@@ -74,13 +83,12 @@ const Contact = () => {
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
-
         <form
           ref={formRef}
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
         >
-         {/*  <label className='flex flex-col'>
+          <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Name</span>
             <input
               type='text'
@@ -119,15 +127,7 @@ const Contact = () => {
             className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
           >
             {loading ? "Sending..." : "Send"}
-          </button> */}
-                 {/* Overlay to hide the form */}
-      <div className="bg-black-200  justify-center items-center text-center text-white text-lg font-semibold rounded-2xl">
-        <p>
-          🚧 This section is under development! 🚧 <br />
-          You can check my contacts using the terminal or contact me via email.
-        </p>
-        <p> mouadfliti@gmail.com</p>
-      </div>
+          </button>
         </form>
       </motion.div>
 
@@ -137,6 +137,17 @@ const Contact = () => {
       >
         <EarthCanvas />
       </motion.div>
+      <ModalFl isOpen={isModalOpen} onRequestClose={closeModal} width="max-w-xl" height="h-1/4" title="Message Sent">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className=" p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-2xl font-bold  mb-4">Thank You!</h2>
+            <p className=" mb-6">We’ve received your message and will get back to you as soon as possible.</p>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300" onClick={closeModal}>
+              OK
+            </button>
+          </div>
+        </div>
+      </ModalFl>
     </div>
   );
 };

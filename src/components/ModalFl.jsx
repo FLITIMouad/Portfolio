@@ -2,17 +2,17 @@ import React from 'react'
 import Modal from 'react-modal';
 import Draggable from 'react-draggable';
 Modal.setAppElement('#root');
-const ModalFl = ({ isOpen, onRequestClose, children,title }) => {
+const ModalFl = ({ isOpen, onRequestClose, children,title ,width="max-w-3xl" ,height="h-3/4"}) => {
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel="Terminal Modal"
+      contentLabel="Modal Mobile Friendly  Terminal "
       className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50"
     >
       <Draggable handle=".modal-header">
-      <div className="bg-primary rounded-lg shadow-lg w-full max-w-3xl h-3/4 flex flex-col">
+      <div className={`bg-primary rounded-lg shadow-lg w-full ${width} ${height} flex flex-col`}>
           <div className="modal-header flex justify-between items-center p-4 cursor-move">
             <h2 className="text-2xl font-bold">{title}</h2>
             <button onClick={onRequestClose} className="text-gray-500 hover:text-gray-700">

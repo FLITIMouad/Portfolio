@@ -7,10 +7,10 @@ import Experience from "./Experience";
 import Works from "./Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
-import TerminalModal from "./TerminalModal";
 import CanvasLoader from "./Loader";
 import ModalFl from "./ModalFl";
 import Terminal from "./Terminal";
+import MobileTerminal from "./MobileTerminal";
 
 
 export {
@@ -27,7 +27,7 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas,
-  TerminalModal,
   ModalFl,
-  Terminal
+  Terminal,
+  MobileTerminal
 };

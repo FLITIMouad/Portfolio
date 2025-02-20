@@ -298,7 +298,7 @@ const projects = [
 ];
 const commands = {
   init: (
-    <pre className="whitespace-pre text-green-400 text-justify">
+    <pre className="whitespace-pre-wrap text-green-400 text-justify">
       {`
           ███╗   ███╗ ██████╗ ██╗   ██╗ █████╗ ██████╗ 
           ████╗ ████║██╔═══██╗██║   ██║██╔══██╗██╔══██╗
@@ -311,7 +311,7 @@ const commands = {
     </pre>
   ),
   help: (
-    <pre className="whitespace-pre text-green-400">
+    <pre className="whitespace-pre-wrap text-green-400">
       {`
             Usage: mouad.exe [help | -h] [about | -a] [experience | -e] 
                              [projects | -p] [contact | -c] [clear | clr]
@@ -329,7 +329,7 @@ const commands = {
     </pre>
   ),
   about: (
-    <pre className='whitespace-pre text-green-400'>
+    <pre className='whitespace-pre-wrap text-green-400'>
       {`
       =============================
            ABOUT MOuAD FLITI
@@ -347,7 +347,7 @@ const commands = {
     </pre>
   ),
   skills: (
-    <pre className='whitespace-pre text-green-400'>
+    <pre className='whitespace-pre-wrap text-green-400'>
       {`
       =============================
              TECHNICAL SKILLS
@@ -376,7 +376,7 @@ const commands = {
     </pre>
   ),
   experiences: (
-    <pre className='whitespace-pre text-green-400'>
+    <pre className='whitespace-pre-wrap text-green-400'>
       {`
     =============================
            WORK EXPERIENCE
@@ -408,7 +408,7 @@ const commands = {
   ),
   projects:
     (
-      <pre className='whitespace-pre text-green-400'>
+      <pre className='whitespace-pre-wrap text-green-400'>
         {`
 =============================
        PROJECTS
@@ -431,7 +431,7 @@ Type 'contact' to reach out!
       </pre>
     ),
   contact: (
-    <pre className='whitespace-pre text-green-400 text-center'>
+    <pre className='whitespace-pre-wrap text-green-400 text-center'>
       {`
 =============================
      CONTACT INFO
@@ -443,7 +443,7 @@ Type 'contact' to reach out!
       <p>Type 'help | -h' to see available commands.</p>
     </pre>
   ),
-  download:( <pre className='whitespace-pre text-green-400 text-center'>
+  download:( <pre className='whitespace-pre-wrap text-green-400 text-center'>
     {`
 =============================
        DOWNLOAD CV
