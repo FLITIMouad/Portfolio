@@ -76,8 +76,8 @@ const Terminal = ({absolute=false}) => {
       <div className="mb-4 p-2">
         {history.map((entry, index) => (
           <div key={index}>
-            {entry.command && (<p className="text-green-200">$ {entry.command}</p>)}
-            <p className="pl-5">{entry.output}</p>
+            {entry.command && (<pre className="text-green-200 ">$ {entry.command}</pre>)}
+            <pre className="pl-5 text-center">{entry.output}</pre>
           </div>
         ))}
       </div>
