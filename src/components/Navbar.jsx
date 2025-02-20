@@ -95,7 +95,7 @@ const Navbar = ({openModal=()=>{}}) => {
                     setActive(nav.title);
                   }}
                 >
-                 {nav.id.includes('terminal') && isMobile ? (<Link to={nav.id}>{nav.title}</Link>) : <a href={`#${nav.id}`}>{nav.title}</a>} 
+                 {nav.id.includes('terminal') && isMobile ? (<Link to={nav.id}>{nav.title}</Link>) : <a href={`/Portfolio/#${nav.id}`}>{nav.title}</a>} 
                 </li>
               ))}
             </ul>

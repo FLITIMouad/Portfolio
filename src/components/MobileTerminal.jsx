@@ -52,19 +52,19 @@ const MobileTerminal = () => {
   };
 
   return (
-    <div className="fixed inset-0 w-full h-full bg-black text-green-400 font-mono p-4 flex flex-col text-sm md:text-base">
+    <div className="fixed top-5 inset-0 w-full h-full bg-black text-green-400 font-mono p-4 flex flex-col text-sm md:text-base">
       {/* Terminal Content */}
-      <div className="flex-grow overflow-y-auto p-2 break-words whitespace-pre-wrap overflow-x-hidden w-full">
+      <div className="flex-grow overflow-y-auto p-2 overflow-x-hidden w-full">
         {history.map((entry, index) => (
-          <div key={index} className="w-full ">
-            {entry.command && <p className="text-green-200 overflow-hidden break-words w-full">$ {entry.command}</p>}
-            <p className="pl-5 text-xs md:text-sm overflow-hidden  w-full">{entry.output}</p>
+          <div key={index} className="w-full break-words">
+            {entry.command && <pre className="text-green-200 overflow-hidden break-words w-full whitespace-pre-wrap text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">$ {entry.command}</pre>}
+            <pre className="pl-5 text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] overflow-hidden break-words w-full whitespace-pre-wrap">{entry.output}</pre>
           </div>
         ))}
       </div>
 
       {/* Terminal Input */}
-      <div className="p-2 bg-green-800 flex items-center text-sm md:text-base w-full">
+      <div className="p-2 mb-3 bg-green-800 flex items-center text-sm md:text-base w-full">
         <span className="text-green-200">$</span>
         <input
           ref={inputRef}

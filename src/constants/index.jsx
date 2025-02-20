@@ -297,19 +297,15 @@ const projects = [
   },
 ];
 const commands = {
-  init: (
-    <pre className="whitespace-pre-wrap text-green-400 text-justify">
-      {`
-          ███╗   ███╗ ██████╗ ██╗   ██╗ █████╗ ██████╗ 
-          ████╗ ████║██╔═══██╗██║   ██║██╔══██╗██╔══██╗
-          ██╔████╔██║██║   ██║██║   ██║███████║██║  ██║
-          ██║╚██╔╝██║██║   ██║██║   ██║██╔══██║██║  ██║
-          ██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██║  ██║██████╔╝
-          ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ 
-  
-        Welcome to my portfolio. Type  'mouad help' to see available commands.`}
-    </pre>
-  ),
+  init:     `
+    ███╗   ███╗ ██████╗ ██╗   ██╗ █████╗ ██████╗ 
+    ████╗ ████║██╔═══██╗██║   ██║██╔══██╗██╔══██╗
+    ██╔████╔██║██║   ██║██║   ██║███████║██║  ██║
+    ██║╚██╔╝██║██║   ██║██║   ██║██╔══██║██║  ██║
+    ██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██║  ██║██████╔╝
+    ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ 
+
+  Welcome to my portfolio. Type  'mouad help' to see available commands.`,
   help: (
     <pre className="whitespace-pre-wrap text-green-400">
       {`
