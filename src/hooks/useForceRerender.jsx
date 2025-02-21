@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect ,useCallback} from "react";
 
 const useForceRerender = () => {
   const [key, setKey] = useState(0);
@@ -17,4 +17,11 @@ const useForceRerender = () => {
   return key;
 };
 
-export default useForceRerender;
+
+const useForceUpdate = () => {
+  const [, setState] = useState(0);
+  return useCallback(() => setState((s) => s + 1), []);
+};
+
+
+export {useForceRerender,useForceUpdate} ;

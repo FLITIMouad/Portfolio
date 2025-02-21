@@ -3,8 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
-import useIsMobile from "@hooks/useIsMobile";
-import { useForceRerender } from "@hooks";
+import { useForceUpdate,useIsMobile } from "@hooks";
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
@@ -34,9 +33,13 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const isMobile = useIsMobile(500);
-
+  const forceUpdate=useForceUpdate()
+  useEffect(()=>{
+    setTimeout(()=>forceUpdate(),200)
+  },[])
   return (
     <Canvas
+    key={Math.random()}
       frameloop='demand'
       shadows
       dpr={[1, 2]} // Reduce pixel density on mobile
