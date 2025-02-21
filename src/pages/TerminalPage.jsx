@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileTerminal, Navbar } from '../components';
+import { MobileTerminal, Navbar } from '@components';
 
 const TerminalPage = () => {
     return (

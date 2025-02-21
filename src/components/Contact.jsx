@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
-import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
+import { SectionWrapper } from "@hooks";
+import { slideIn } from "@utils/motion";
 import ModalFl from "./ModalFl";
 
 const Contact = () => {

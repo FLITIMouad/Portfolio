@@ -12,7 +12,7 @@ import {
   StarsCanvas,
   ModalFl,
   Terminal,
-} from "../components";
+} from "@components";
 
 const PortfolioPage = () => {
  const [isModalOpen, setIsModalOpen] = useState(false);

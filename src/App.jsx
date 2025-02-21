@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import { PortfolioPage } from "./pages";
-import TerminalPage from "./pages/TerminalPage";
+import { PortfolioPage,TerminalPage } from "@pages";
 
 const App = () => {
  

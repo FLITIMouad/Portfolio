@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { commands,shortCutcommands } from "../constants";
-import { useGlobaleState } from "../states/GlobaleState";
+import { commands,shortCutcommands } from "@constants";
+import { useGlobaleState } from "@state/GlobaleState";
 
 const Terminal = ({absolute=false}) => {
   const [input, setInput] = useState("");

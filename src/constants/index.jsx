@@ -28,7 +28,7 @@ import {
   sql,
   azure,
 
-} from "../assets";
+} from "@assets";
 
 export const navLinks = [
   {

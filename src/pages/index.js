@@ -1,3 +1,3 @@
 import PortfolioPage from "./PortfolioPage";
-
-export {PortfolioPage}
+import TerminalPage from "./TerminalPage"
+export {PortfolioPage,TerminalPage}

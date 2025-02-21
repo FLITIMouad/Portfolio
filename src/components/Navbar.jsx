@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { logometa, menu, close } from "../assets";
-import { useIsMobile } from "../hoc";
+import { navLinks } from "@constants";
+import { logometa, menu, close } from "@assets";
+import { useIsMobile } from "@hooks";
 
 
 const Navbar = ({openModal=()=>{}}) => {
@@ -95,7 +95,7 @@ const Navbar = ({openModal=()=>{}}) => {
                     setActive(nav.title);
                   }}
                 >
-                 {nav.id.includes('terminal') && isMobile ? (<Link to={nav.id}>{nav.title}</Link>) : <a href={`#${nav.id}`}>{nav.title}</a>} 
+                 {nav.id.includes('terminal') && isMobile ? (<Link to={nav.id}>{nav.title}</Link>) : <a href={`/#${nav.id}`}>{nav.title}</a>} 
                 </li>
               ))}
             </ul>

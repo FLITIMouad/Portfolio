@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { commands, shortCutcommands } from "../constants";
-import { useGlobaleState } from "../states/GlobaleState";
+import { commands, shortCutcommands } from "@constants";
+import { useGlobaleState } from "@state/GlobaleState";
 
 const MobileTerminal = () => {
   const [input, setInput] = useState("");
@@ -60,7 +60,7 @@ const MobileTerminal = () => {
         {history.map((entry, index) => (
           <div key={index} className="w-full break-words">
             {entry.command && <pre className="text-green-200 overflow-hidden break-words w-full whitespace-pre-wrap text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">$ {entry.command}</pre>}
-            <pre className="pl-5 text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] overflow-hidden break-words w-full whitespace-pre-wrap">{entry.output}</pre>
+            <pre className="pl-5 text-[8px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] overflow-hidden break-words w-full whitespace-pre-wrap">{entry.output}</pre>
           </div>
         ))}
       </div>
