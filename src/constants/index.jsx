@@ -38,6 +38,9 @@ export const navLinks = [
   {
     id: "work",
     title: "Work",
+  },{
+    id: "skills",
+    title: "Skills",
   },
   {
     id: "contact",
@@ -70,60 +73,86 @@ const services = [
 
 ];
 
-const technologies = [
+const technologies = [  
   {
     name: "Dot Net",
     icon: dotnet,
+    level:100
   },
   {
     name: "Azure",
     icon: azure,
+    level:70
   },
   {
     name: "SQl server",
     icon: sql,
+    level:100
   },
   {
     name: "MongoDB",
     icon: mongodb,
+    level:80
   },
   {
     name: "JavaScript",
     icon: javascript,
+    level:100
   },
   {
     name: "TypeScript",
     icon: typescript,
+    level:100
   },
   {
     name: "React JS",
     icon: reactjs,
+    level:98
   },
   {
     name: "HTML 5",
     icon: html,
+    level:100
   },
   {
     name: "CSS 3",
     icon: css,
+    level:100
   },
   {
     name: "Node JS",
     icon: nodejs,
+    level:90
   },
   {
     name: "git",
     icon: git,
+    level:100
   },
   {
     name: "figma",
     icon: figma,
+    level:50
   },
   {
     name: "docker",
     icon: docker,
+    level:80
   },
 ];
+
+export const radarData = {
+  labels: technologies.map((s) => s.name),
+  datasets: [
+    {
+      label: "Skill Level",
+      data: technologies.map((s) => s.level),
+      backgroundColor: "rgba(34, 202, 236, 0.2)",
+      borderColor: "#22caec",
+      borderWidth: 2,
+    },
+  ],
+};
 
 const experiences = [
   {

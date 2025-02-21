@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -9,6 +9,7 @@ import {
 } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import { useForceUpdate } from "@hooks";
 
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
@@ -39,15 +40,20 @@ const Ball = (props) => {
 };
 
 const BallCanvas = ({ icon,keyCnavas }) => {
-
+/*   const [key,setKey] =useState(0)
+  //const forceUpdate=useForceUpdate()
+  useEffect(()=>{
+    setTimeout(()=>setKey(keyCnavas+1),500)
+  },[]) */
   return (
     <Canvas
+    key={keyCnavas}
       frameloop='demand'
       dpr={[1, 1.5]} // Reduce for better performance on mobile
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance", preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
+       {/*  <OrbitControls enableZoom={false} /> */}
         <Ball imgUrl={icon} />
       </Suspense>
 
