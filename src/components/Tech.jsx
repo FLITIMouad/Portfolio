@@ -10,10 +10,10 @@ import { fadeIn } from "@utils/motion";
 const Tech = () => {
   const controlsArray = technologies.map(() => useAnimation()); 
   const [visible, setVisible] = useState(false);
-const skills=useRef(null);
+const barsComp=useRef(null);
   useEffect(() => {
     const handleScroll = () => {
-      const section =skills.current;
+      const section =barsComp.current;
       if (section) {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.75) {
@@ -32,7 +32,7 @@ const skills=useRef(null);
       technologies.forEach((skill, index) => {
         controlsArray[index].start({
           width: `${skill.level}%`,
-          transition: { duration: 1.5, ease: "easeOut" },
+          transition: { duration: 3, ease: "easeOut" },
         });
       });
     }
@@ -57,7 +57,7 @@ const skills=useRef(null);
   };
   return (
     
-    <div id="skills" ref={skills} className='p-10 bg-gray-900 min-h-screen flex-wrap justify-center gap-10'>
+    <div id="skills" className='p-10 bg-gray-900 min-h-screen flex-wrap justify-center gap-10'>
        {/* Grid UI for Skills */}
        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
         {technologies.map((skill,index) => (
@@ -81,7 +81,7 @@ const skills=useRef(null);
       </div>
       
       {/* Skill Bars */}
-    <div className="space-y-4 mb-16">
+    <div ref={barsComp} className="space-y-4 mb-16">
         {technologies.map((skill,index) => (
           <div key={skill.name}>
             <p className="text-sm font-bold">{skill.name}</p>
