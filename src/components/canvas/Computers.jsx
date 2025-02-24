@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 import { useForceUpdate,useIsMobile } from "@hooks";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("./mouad_pc/pcMouad.gltf");
     
     return (
       <mesh>
