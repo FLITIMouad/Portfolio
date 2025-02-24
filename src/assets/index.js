@@ -22,6 +22,8 @@ import typescript from "./tech/typescript.png";
 import dotnet from "./tech/dotnet.png";
 import sql from "./tech/sql.png";
 import azure from "./tech/azure.png";
+import kafaka from "./tech/kafka.png";
+import rabbitmq from "./tech/rabbitmq.png";
 
 
 import sqli from "./company/sqli.png";
@@ -60,6 +62,8 @@ export {
   dotnet,
   sql,
   azure,
+  rabbitmq,
+  kafaka,
   reactjs,
   redux,
   tailwind,

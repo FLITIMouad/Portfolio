@@ -27,8 +27,10 @@ import {
   dotnet,
   sql,
   azure,
-
+  kafaka, 
+  rabbitmq 
 } from "@assets";
+
 
 export const navLinks = [
   {
@@ -88,6 +90,16 @@ const technologies = [
     name: "SQl server",
     icon: sql,
     level:100
+  },
+  {
+    name: "Kafka",
+    icon: kafaka,
+    level:95
+  },
+  {
+    name: "RabbitMQ",
+    icon: rabbitmq,
+    level:95
   },
   {
     name: "MongoDB",
@@ -384,7 +396,8 @@ const commands = {
       ☁️ Cloud: Azure, AWS
       ⚙️ DevOps: Azure DevOps, Docker, Terraform, Git
       🛠️ Testing: Xunit, Jest, Selenium
-      🏗️ Architecture: CQRS, Microservices, Domain-Driven Design (DDD), Test-Driven Development (TDD)
+      🏗️ Architecture: CQRS, Microservices,Gestion
+d’asynchronisme (Kafka,RabbitMQ) , Domain-Driven Design (DDD), Test-Driven Development (TDD)
       🛠️ CRM: Microsoft Dynamics 365, Microsoft Power Platform
       
       =============================
