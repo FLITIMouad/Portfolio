@@ -3,48 +3,57 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
-import { useForceUpdate,useIsMobile } from "@hooks";
+import { useForceUpdate, useIsMobile } from "@hooks";
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./mouad_pc/pcMouad.gltf");
-    
-    return (
-      <mesh>
-        <hemisphereLight intensity={0.15} groundColor='black' />
-        <spotLight
-          position={[-20, 50, 10]}
-          angle={0.12}
-          penumbra={1}
-          intensity={1}
-          castShadow
-          shadow-mapSize={512}
-        />
-        <pointLight intensity={1} />
-        <primitive
-          object={computer.scene}
-          scale={isMobile ? 0.5 : 0.75}
-          position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-          rotation={[-0.01, -0.2, -0.1]}
-        />
-      </mesh>
-    );
+
+  return (
+    <mesh>
+      <hemisphereLight intensity={0.15} groundColor="black" />
+      <spotLight
+        position={[-20, 50, 10]}
+        angle={0.12}
+        penumbra={1}
+        intensity={1}
+        castShadow
+        shadow-mapSize={isMobile ? 256 : 512} // Optimize shadows for mobile
+      />
+      <pointLight intensity={0.8} />
+      <primitive
+        object={computer.scene}
+        scale={isMobile ? 0.3 : 0.75} // Adjust scale for mobile
+        position={isMobile ? [0, -2.5, -0.8] : [0, -3.25, -1.5]} // Shift up for mobile
+        rotation={[-0.01, -0.2, -0.1]}
+      />
+    </mesh>
+  );
 };
 
-
 const ComputersCanvas = () => {
-  const isMobile = useIsMobile(500);
-  const forceUpdate=useForceUpdate()
-  useEffect(()=>{
-    setTimeout(()=>forceUpdate(),200)
-  },[])
+  const isMobile = useIsMobile(750);
+  const forceUpdate = useForceUpdate();
+
+  useEffect(() => {
+    setTimeout(() => forceUpdate(), 200);
+  }, []);
+
   return (
     <Canvas
-    key={Math.random()}
-      frameloop='demand'
+      key={Math.random()}
+      frameloop="demand"
       shadows
-      dpr={[1, 2]} // Reduce pixel density on mobile
-      camera={{ position: [20, 3, 5], fov: 30 }} // Increase FOV for better mobile rendering
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance",preserveDrawingBuffer: true }} // Optimize WebGL
+      dpr={[1, 1.5]} // Balanced DPI for mobile
+      camera={{
+        position: [20, 3, 5],
+        fov: isMobile ? 35 : 30, // Wider FOV for mobile
+      }}
+      gl={{
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance",
+        preserveDrawingBuffer: true,
+      }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -54,6 +63,7 @@ const ComputersCanvas = () => {
           rotateSpeed={0.5} // Prevent laggy rotation
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
+          enablePan={isMobile} // Allow touch drag on mobile
         />
         <Computers isMobile={isMobile} />
       </Suspense>

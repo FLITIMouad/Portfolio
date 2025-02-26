@@ -17,7 +17,6 @@ const Tech = () => {
       if (section) {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.75) {
-          console.log("is on");
           setVisible(true);
         }
       }

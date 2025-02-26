@@ -10,7 +10,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
        <Route  path="/terminal"  element={<TerminalPage />} />
-       <Route  path="/" element={<PortfolioPage historical={historical} setHistorical={setHistorical}  />} />
+       <Route  path="/" element={<PortfolioPage/>} />
        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>
